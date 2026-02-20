@@ -33,3 +33,6 @@ La separación entre cliente y servidor es un principio fundamental en el desarr
 En conjunto, esta arquitectura hace que las aplicaciones sean más robustas, seguras y adaptables a diferentes necesidades y dispositivos.
 
 ---
+
+**Conclusión:**  
+Tanto una buena estructura de trabajo en equipo como la separación entre cliente y servidor son prácticas esenciales para desarrollar proyectos tecnológicos eficientes, organizados y sostenibles en el tiempo.
