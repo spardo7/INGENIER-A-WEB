@@ -1,0 +1,630 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+
+header {
+  background: linear-gradient(to right, #2e7d32, #66bb6a, chocolate);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  display: flex;              /* alinea SVG + título en fila */
+  justify-content: center;
+  align-items: center;
+  gap: 20px;                  /* espacio entre SVG y título */
+  animation: entradaHeader 1s ease-out;
+}
+
+/* TEMA 13: Flex en nav */
+nav {
+  background-color: #333;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+nav li { margin: 0; }
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+nav a:hover { color: #4CAF50; }
+
+.nav-auth {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-auth {
+  padding: 7px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.btn-auth:hover { transform: scale(1.05); }
+
+.btn-login {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+.btn-login:hover { background-color: rgba(255,255,255,0.15); }
+
+.btn-register {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.btn-register:hover { background-color: #388E3C; }
+
+section {
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+article { line-height: 1.6; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+section div { margin-bottom: 10px; }
+
+/* TEMA 11: Float */
+.float-img {
+  float: right;
+  width: 250px;
+  margin: 0 0 10px 20px;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* TEMA 12 + 13: Tarjetas con Flex */
+.tarjetas {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.tarjeta {
+  background-color: #f0faf0;
+  border: 1px solid #4CAF50;
+  border-radius: 8px;
+  padding: 16px;
+  width: 200px;
+  text-align: center;
+}
+
+/* TEMA 14: Position */
+.mapa-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.mapa-container img { width: 100%; }
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* TEMA 15 + 18: Transform + Transition */
+.btn-mapa {
+  display: inline-block;
+  margin: 12px 0;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.btn-mapa:hover {
+  transform: scale(1.08);
+  background-color: #388E3C;
+}
+
+/* TEMA 16: Formulario contacto */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.formulario textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  height: 100px;
+  resize: vertical;
+  transition: border-color 0.3s;
+}
+
+.formulario textarea:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+.formulario button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.formulario button:hover {
+  transform: scale(1.05);
+  background-color: #388E3C;
+}
+
+/* TEMA 17: iframe */
+.mapa-iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 12px;
+}
+
+/* TEMA 19: Columnas */
+.columnas {
+  column-count: 2;
+  column-gap: 30px;
+  column-rule: 1px solid #4CAF50;
+}
+
+/* TEMA 20 + 21: Video y Audio */
+.media {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+}
+
+/* MODAL — Tema 14: fixed + Tema 15: scale + Tema 18: transition */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 1000;
+}
+
+.modal-overlay.activo {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal {
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px;
+  width: 380px;
+  max-width: 90%;
+  transform: scale(0.9);
+  transition: transform 0.3s;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.modal-overlay.activo .modal {
+  transform: scale(1);
+}
+
+.modal-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.tab {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  background: none;
+  font-size: 15px;
+  cursor: pointer;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.tab.activo {
+  border-bottom-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+.modal-cerrar {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #999;
+  margin-left: auto;
+  transition: color 0.2s;
+}
+
+.modal-cerrar:hover { color: #333; }
+
+.formulario-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.formulario-modal h3 {
+  margin: 0 0 8px 0;
+  color: #333;
+}
+
+.formulario-modal input {
+  padding: 9px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: border-color 0.3s;
+}
+
+.formulario-modal input:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+.formulario-modal button[type="submit"] {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.formulario-modal button[type="submit"]:hover {
+  transform: scale(1.03);
+  background-color: #388E3C;
+}
+
+.modal-switch {
+  text-align: center;
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+.modal-switch a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.modal-switch a:hover { text-decoration: underline; }
+
+.oculto { display: none; }
+
+/* ============================================
+   TEMA 22: Colores, Transparencias y Degradados
+   ============================================ */
+
+/* 1. Colores con nombre */
+header {
+  background-color: olive; /* reemplaza o combina con el #4CAF50 actual */
+  color: beige;
+}
+
+/* 2. Opacidad en tarjetas */
+.tarjeta {
+  opacity: 0.92;
+}
+
+.tarjeta:hover {
+  opacity: 1;
+}
+
+/* 3. RGBA - color con transparencia en secciones */
+section {
+  background-color: rgba(255, 255, 255, 0.88); /* blanco semi-transparente */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+/* 4. RGBA en el footer */
+footer {
+  background-color: rgba(51, 51, 51, 0.95);
+}
+
+/* 5. Degradado en el header */
+header {
+  background: linear-gradient(to right, #2e7d32, #66bb6a, chocolate);
+}
+
+/* 6. Degradado en el nav */
+nav {
+  background: linear-gradient(to right, #1a1a1a, #333, #1a1a1a);
+}
+
+/* 7. Degradado en botón de mapa */
+.btn-mapa {
+  background: linear-gradient(to right, #4CAF50, orange);
+}
+
+/* 8. Degradado en el fondo del modal */
+.modal {
+  background: linear-gradient(to bottom, #ffffff, beige);
+}
+
+/* ============================================
+   TEMA 23: Animaciones (animation)
+   ============================================ */
+
+/* Animación de entrada del header (fade + slide) */
+@keyframes entradaHeader {
+  0%   { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Animación de pulso en el logo/título */
+@keyframes pulso {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Animación de entrada de las tarjetas */
+@keyframes aparecerTarjeta {
+  0%   { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Animación del badge del mapa (parpadeo) */
+@keyframes parpadeo {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+/* Animación de color en el footer */
+@keyframes colorFooter {
+  0%   { background-color: #333; }
+  50%  { background-color: #2e7d32; }
+  100% { background-color: #333; }
+}
+
+/* 2. Aplicar animaciones a los elementos */
+
+/* Header entra animado al cargar la página */
+header {
+  animation: entradaHeader 1s ease-out;
+}
+
+/* Título del header pulsa suavemente en loop */
+header h1 {
+  animation: pulso 3s ease-in-out infinite;
+}
+
+/* Tarjetas aparecen con retardo escalonado */
+.tarjeta:nth-child(1) { animation: aparecerTarjeta 0.6s ease both; }
+.tarjeta:nth-child(2) { animation: aparecerTarjeta 0.6s ease 0.2s both; }
+.tarjeta:nth-child(3) { animation: aparecerTarjeta 0.6s ease 0.4s both; }
+
+/* Badge del mapa parpadea en loop */
+.badge {
+  animation: parpadeo 1.5s ease-in-out infinite;
+}
+
+/* Footer cambia de color en loop */
+footer {
+  animation: colorFooter 4s ease-in-out infinite;
+}
+
+/* ============================================
+   TEMA 26: Responsive Design (Media Queries)
+   ============================================ */
+
+/* --- TABLET: pantallas menores a 768px --- */
+@media (max-width: 768px) {
+
+  /* Nav en columna */
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .nav-auth {
+    justify-content: center;
+  }
+
+  /* Secciones ocupan más ancho */
+  section {
+    max-width: 95%;
+    margin: 10px auto;
+    padding: 15px;
+  }
+
+  /* Imagen flota abajo en vez de a la derecha */
+  .float-img {
+    float: none;
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+
+  /* Tarjetas en columna */
+  .tarjetas {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tarjeta {
+    width: 80%;
+  }
+
+  /* Columnas de productos pasan a 1 */
+  .columnas {
+    column-count: 1;
+  }
+
+  /* Canvas responsive */
+  #miCanvas {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Header más pequeño */
+  header h1 {
+    font-size: 22px;
+  }
+
+  header svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* --- MÓVIL: pantallas menores a 480px --- */
+@media (max-width: 480px) {
+
+  header h1 {
+    font-size: 18px;
+  }
+
+  header svg {
+    display: none; /* oculta SVG en móvil muy pequeño */
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+
+  .btn-auth {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .tarjeta {
+    width: 95%;
+  }
+
+  .mapa-iframe {
+    height: 200px;
+  }
+
+  footer h3 {
+    font-size: 13px;
+  }
+
+  .modal {
+    width: 95%;
+    padding: 20px;
+  }
+}
+
+/* --- PANTALLA GRANDE: más de 1200px --- */
+@media (min-width: 1200px) {
+
+  section {
+    max-width: 1000px;
+  }
+
+  .tarjetas {
+    gap: 30px;
+  }
+
+  .tarjeta {
+    width: 250px;
+  }
+
+  header h1 {
+    font-size: 36px;
+  }
+}
+
+/* TEMA 27: Contenido Editable */
+[contenteditable="true"] {
+  border: 2px dashed #4CAF50;
+  border-radius: 6px;
+  padding: 6px 10px;
+  outline: none;
+  transition: background-color 0.3s, border-color 0.3s;
+  cursor: text;
+}
+
+[contenteditable="true"]:hover {
+  background-color: rgba(76, 175, 80, 0.08);
+}
+
+[contenteditable="true"]:focus {
+  background-color: rgba(76, 175, 80, 0.15);
+  border-color: #2e7d32;
+  border-style: solid;
+}
+
+.nota-editable {
+  min-height: 80px;
+  margin-top: 12px;
+  color: #888;
+  font-size: 14px;
+}
