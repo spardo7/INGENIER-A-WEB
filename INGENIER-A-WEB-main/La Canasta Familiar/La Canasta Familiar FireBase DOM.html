@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <title>La Canasta Familiar</title>
+  <link rel="icon" type="image/png" href="images/Favicon Canasta.jpg">
+  <link rel="stylesheet" href="css/visual.css" type="text/css"/>
+</head>
+
+<body style="background-image: url('images/Fondo de pantalla.png'); background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat;">
+
+  <header>
+    <svg width="60" height="60" viewBox="0 0 120 120">
+      <circle cx="60" cy="60" r="55" fill="white" opacity="0.15"/>
+      <ellipse cx="60" cy="60" rx="25" ry="40" fill="white" opacity="0.6" transform="rotate(-30 60 60)"/>
+      <line x1="60" y1="20" x2="60" y2="100" stroke="white" stroke-width="2"/>
+    </svg>
+    <div>
+      <h1>La Canasta Familiar</h1>
+      <p id="saludoUsuario" style="margin:0; font-size:13px; color:rgba(255,255,255,0.85); display:none;"></p>
+    </div>
+    <svg width="60" height="60" viewBox="0 0 120 120">
+      <circle cx="60" cy="60" r="25" fill="white" opacity="0.7"/>
+      <line x1="60" y1="10" x2="60" y2="30" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      <line x1="60" y1="90" x2="60" y2="110" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      <line x1="10" y1="60" x2="30" y2="60" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      <line x1="90" y1="60" x2="110" y2="60" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      <line x1="25" y1="25" x2="39" y2="39" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      <line x1="81" y1="81" x2="95" y2="95" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      <line x1="95" y1="25" x2="81" y2="39" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      <line x1="25" y1="95" x2="39" y2="81" stroke="white" stroke-width="4" stroke-linecap="round"/>
+    </svg>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#info" class="boton">🏠 Quienes Somos</a></li>
+      <li><a href="#info1" class="boton">🛒 Servicios</a></li>
+      <li><a href="#info2" class="boton">📞 Contacto</a></li>
+    </ul>
+    <div class="nav-auth">
+      <div id="botonesAuth" style="display:flex; gap:10px;">
+        <button class="btn-auth btn-login" onclick="abrirModal('login')">Iniciar Sesión</button>
+        <button class="btn-auth btn-register" onclick="abrirModal('registro')">Registrarse</button>
+      </div>
+      <div id="botonLogout" style="display:none; align-items:center; gap:10px;">
+        <span id="nombreNav" style="color:white; font-size:14px;"></span>
+        <button class="btn-auth btn-login" onclick="cerrarSesion()">🔒 Cerrar sesión</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Tema 11: Float -->
+  <section>
+    <div><h2 id="info">Quienes Somos</h2></div>
+    <article>
+      <h3>Descripción del Fruver</h3>
+      <img src="images/Maps Canasta.jpg" alt="Fruver" class="float-img">
+      Somos un fruver comprometido con llevar a tu mesa frutas y vegetales frescos, saludables y de excelente calidad, provenientes <b>100% del campo colombiano</b>. Seleccionamos cuidadosamente cada producto para garantizar frescura, sabor y valor nutricional, apoyando directamente a los agricultores nacionales.
+      <br><br>
+      Ofrecemos productos de la canasta familiar a precios justos, promoviendo una alimentación balanceada y el consumo de lo nuestro. Nuestro objetivo es brindar un servicio cercano y confiable, donde cada cliente encuentre variedad, calidad y atención amable.
+      <div class="clearfix"></div>
+    </article>
+  </section>
+
+  <!-- Tema 27: Contenido Editable -->
+  <section>
+    <div><h2>✏️ Personaliza tu Pedido</h2></div>
+    <article>
+      <p style="color:#888; font-size:13px;">💡 Haz clic en cualquier texto verde para editarlo</p>
+      <h3 contenteditable="true">🛒 Mi Lista de Compras</h3>
+      <ul>
+        <li contenteditable="true">🍅 Tomates frescos</li>
+        <li contenteditable="true">🥦 Brócoli orgánico</li>
+        <li contenteditable="true">🍊 Naranjas de temporada</li>
+        <li contenteditable="true">🥕 Zanahorias del campo</li>
+      </ul>
+      <div contenteditable="true" class="nota-editable">
+        📝 Escribe aquí tus notas o productos adicionales...
+      </div>
+    </article>
+  </section>
+
+  <!-- Tema 12 + 13: Flex y Centrar -->
+  <section>
+    <div><h2 id="info1">Servicios</h2></div>
+    <article>
+      <h3>Opciones de Compra</h3>
+      <div class="tarjetas">
+        <div class="tarjeta">
+          <h4>🏪 Punto Físico</h4>
+          <p>Visítanos y elige tus productos personalmente con atención cercana y amable.</p>
+        </div>
+        <div class="tarjeta">
+          <h4>🛵 Domicilios</h4>
+          <p>Haz tus compras fácil, rápido y seguro desde la comodidad de tu hogar.</p>
+        </div>
+        <div class="tarjeta">
+          <h4>🥦 Canasta Fresca</h4>
+          <p>Frutas y vegetales seleccionados diariamente para garantizar la mejor calidad.</p>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- Tema 14 + 15 + 16 + 17 -->
+  <section>
+    <div><h2 id="info2">Contacto</h2></div>
+    <article>
+      <h3>Información de Ubicación y Contacto</h3>
+      <div class="mapa-container">
+        <img src="images/Maps Canasta.jpg" alt="Mapa del fruver">
+        <span class="badge">📍 Estamos aquí</span>
+      </div>
+      <p>📍 Punto Físico: Cl. 8 #79c-16, Bogotá</p>
+      <p>📞 Domicilios: 320 8968237</p>
+      <a href="https://www.google.com/maps/@4.6403229,-74.1448216,20z" target="_blank" class="btn-mapa">
+        Ver en Google Maps
+      </a>
+      <h3>Escríbenos</h3>
+      <form class="formulario">
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" placeholder="¿En qué te podemos ayudar?"></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+      <h3>Encuéntranos</h3>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.0!2d-74.1448216!3d4.6403229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwMzgnMjUuMiJOIDc0wrAwOCc0MS40Ilc!5e0!3m2!1ses!2sco!4v1"
+        class="mapa-iframe" allowfullscreen="" loading="lazy">
+      </iframe>
+    </article>
+  </section>
+
+  <!-- Tema 19: Columnas -->
+  <section>
+    <div><h2>Nuestros Productos</h2></div>
+    <article class="columnas">
+      <p>En La Canasta Familiar encontrarás una amplia variedad de frutas tropicales frescas traídas directamente desde los mejores cultivos del país.</p>
+      <p>Contamos con verduras de hoja verde, tubérculos, raíces y legumbres seleccionadas cada mañana para garantizar frescura y sabor en cada compra.</p>
+      <p>Apoyamos a los agricultores colombianos comprando directamente en finca, lo que nos permite ofrecerte precios justos y productos de temporada.</p>
+    </article>
+  </section>
+
+  <!-- Tema 24: SVG -->
+  <section>
+    <div><h2>🌿 Decoración Vectorial</h2></div>
+    <article style="text-align:center;">
+      <svg width="120" height="120" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="55" fill="#4CAF50" opacity="0.2" stroke="#4CAF50" stroke-width="2"/>
+        <ellipse cx="60" cy="60" rx="25" ry="40" fill="#4CAF50" transform="rotate(-30 60 60)"/>
+        <line x1="60" y1="20" x2="60" y2="100" stroke="#2e7d32" stroke-width="2"/>
+      </svg>
+      <svg width="120" height="120" viewBox="0 0 120 120">
+        <polygon points="60,10 110,100 10,100" fill="chocolate" opacity="0.8"/>
+        <rect x="50" y="90" width="20" height="20" fill="#4CAF50" rx="4"/>
+        <text x="60" y="75" text-anchor="middle" fill="white" font-size="12">Fruver</text>
+      </svg>
+      <svg width="120" height="120" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="25" fill="orange"/>
+        <line x1="60" y1="10" x2="60" y2="30" stroke="orange" stroke-width="4" stroke-linecap="round"/>
+        <line x1="60" y1="90" x2="60" y2="110" stroke="orange" stroke-width="4" stroke-linecap="round"/>
+        <line x1="10" y1="60" x2="30" y2="60" stroke="orange" stroke-width="4" stroke-linecap="round"/>
+        <line x1="90" y1="60" x2="110" y2="60" stroke="orange" stroke-width="4" stroke-linecap="round"/>
+        <line x1="25" y1="25" x2="39" y2="39" stroke="orange" stroke-width="4" stroke-linecap="round"/>
+        <line x1="81" y1="81" x2="95" y2="95" stroke="orange" stroke-width="4" stroke-linecap="round"/>
+        <line x1="95" y1="25" x2="81" y2="39" stroke="orange" stroke-width="4" stroke-linecap="round"/>
+        <line x1="25" y1="95" x2="39" y2="81" stroke="orange" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </article>
+  </section>
+
+  <!-- Tema 25: Canvas -->
+  <section>
+    <div><h2>🛒 Mini Juego: Llena la Canasta</h2></div>
+    <article style="text-align:center;">
+      <canvas id="miCanvas" width="500" height="320"
+        style="border:2px solid #4CAF50; border-radius:8px; cursor:grab;">
+      </canvas>
+      <p style="color:#666; font-size:13px;">🖱️ ¡Arrastra las frutas a la canasta!</p>
+    </article>
+  </section>
+
+  <!-- Tema 28: Carrito con Firebase -->
+  <section>
+    <div><h2>💾 Mi Carrito Guardado</h2></div>
+    <article>
+      <p style="color:#888; font-size:13px;" id="carritoEstado">
+        💡 Inicia sesión para guardar tu carrito en la nube ☁️
+      </p>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px;">
+        <input type="text" id="inputProducto"
+          placeholder="Ej: 🍅 Tomates"
+          style="padding:8px; border:1px solid #4CAF50; border-radius:6px; font-size:14px; flex:1;">
+        <button onclick="agregarProducto()"
+          style="padding:8px 16px; background-color:#4CAF50; color:white; border:none; border-radius:6px; cursor:pointer; font-size:14px;">
+          ➕ Agregar
+        </button>
+        <button onclick="limpiarCarrito()"
+          style="padding:8px 16px; background-color:#e53935; color:white; border:none; border-radius:6px; cursor:pointer; font-size:14px;">
+          🗑️ Limpiar
+        </button>
+      </div>
+      <ul id="listaCarrito" style="list-style:none; padding:0; margin:0;"></ul>
+      <p id="mensajeStorage" style="color:#2e7d32; font-weight:bold; margin-top:8px;"></p>
+    </article>
+  </section>
+
+  <!-- Tema 20: Video -->
+  <section>
+    <div><h2>Productos del Campo Colombiano</h2></div>
+    <article>
+      <video controls class="media">
+        <source src="video/videoplayback (1).mp4" type="video/mp4">
+        Tu navegador no soporta el elemento video.
+      </video>
+    </article>
+  </section>
+
+  <!-- Audio -->
+  <section>
+    <div><h2>Nuestra Música</h2></div>
+    <article>
+      <p>Escucha el ambiente de nuestra tienda:</p>
+      <audio id="musicaFondo" autoplay loop>
+        <source src="audio/videoplayback.m4a" type="audio/mpeg">
+      </audio>
+    </article>
+  </section>
+
+  <footer>
+    <h3>
+      La Canasta Familiar &copy;2026.<br>
+      Cl. 8 #79c-16, Bogotá. Colombia.<br>
+      <a href="https://fruverhome.co/" target="_blank" style="color:#4CAF50;">Visita Fruver Home</a>
+    </h3>
+  </footer>
+
+  <!-- Modal Login/Registro -->
+  <div class="modal-overlay" id="modalOverlay" onclick="cerrarModal()">
+    <div class="modal" onclick="event.stopPropagation()">
+      <div class="modal-tabs">
+        <button class="tab activo" id="tabLogin" onclick="cambiarTab('login')">Iniciar Sesión</button>
+        <button class="tab" id="tabRegistro" onclick="cambiarTab('registro')">Registrarse</button>
+        <button class="modal-cerrar" onclick="cerrarModal()">✕</button>
+      </div>
+
+      <!-- Login -->
+      <form class="formulario-modal" id="formLogin" onsubmit="loginUsuario(event)">
+        <h3>Bienvenido de nuevo 👋</h3>
+        <label for="loginEmail">Correo electrónico:</label>
+        <input type="email" id="loginEmail" placeholder="tucorreo@ejemplo.com" required>
+        <label for="loginPass">Contraseña:</label>
+        <input type="password" id="loginPass" placeholder="Tu contraseña" required>
+        <p id="errorLogin" style="color:#e53935; font-size:13px; min-height:16px;"></p>
+        <button type="submit">Entrar 🔓</button>
+        <p class="modal-switch">¿No tienes cuenta? <a href="#" onclick="cambiarTab('registro')">Regístrate aquí</a></p>
+      </form>
+
+      <!-- Registro -->
+      <form class="formulario-modal oculto" id="formRegistro" onsubmit="registrarUsuario(event)">
+        <h3>Crea tu cuenta 🌿</h3>
+        <label for="regNombre">Nombre completo:</label>
+        <input type="text" id="regNombre" placeholder="Tu nombre" required>
+        <label for="regEmail">Correo electrónico:</label>
+        <input type="email" id="regEmail" placeholder="tucorreo@ejemplo.com" required>
+        <label for="regTel">Teléfono:</label>
+        <input type="tel" id="regTel" placeholder="Tu número">
+        <label for="regPass">Contraseña:</label>
+        <input type="password" id="regPass" placeholder="Mínimo 6 caracteres" required>
+        <p id="errorRegistro" style="color:#e53935; font-size:13px; min-height:16px;"></p>
+        <button type="submit">Crear cuenta ✅</button>
+        <p class="modal-switch">¿Ya tienes cuenta? <a href="#" onclick="cambiarTab('login')">Inicia sesión aquí</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- FIREBASE -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged }
+      from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+    import { getFirestore, doc, setDoc, getDoc, updateDoc }
+      from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyB2v1FsVPPBZPPtXWCeshP9OEPXogYy4A4",
+      authDomain: "la-canasta-familiar.firebaseapp.com",
+      projectId: "la-canasta-familiar",
+      storageBucket: "la-canasta-familiar.firebasestorage.app",
+      messagingSenderId: "335598077755",
+      appId: "1:335598077755:web:a42ba7353dfc08ebd2591e",
+      measurementId: "G-E3T5YJ34GE"
+    };
+
+    const app  = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db   = getFirestore(app);
+
+    // ── REGISTRO ──────────────────────────────────
+    window.registrarUsuario = async function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('regNombre').value.trim();
+      const email  = document.getElementById('regEmail').value.trim();
+      const tel    = document.getElementById('regTel').value.trim();
+      const pass   = document.getElementById('regPass').value;
+      const error  = document.getElementById('errorRegistro');
+      error.textContent = '';
+      try {
+        const cred = await createUserWithEmailAndPassword(auth, email, pass);
+        await setDoc(doc(db, 'usuarios', cred.user.uid), {
+          nombre, email, telefono: tel,
+          carrito: [], lista: [],
+          creadoEn: new Date().toISOString()
+        });
+        cerrarModal();
+      } catch(err) {
+        if (err.code === 'auth/email-already-in-use') error.textContent = '❌ Ese correo ya está registrado.';
+        else if (err.code === 'auth/weak-password')   error.textContent = '❌ La contraseña debe tener mínimo 6 caracteres.';
+        else error.textContent = '❌ ' + err.message;
+      }
+    };
+
+    // ── LOGIN ─────────────────────────────────────
+    window.loginUsuario = async function(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value.trim();
+      const pass  = document.getElementById('loginPass').value;
+      const error = document.getElementById('errorLogin');
+      error.textContent = '';
+      try {
+        await signInWithEmailAndPassword(auth, email, pass);
+        cerrarModal();
+      } catch(err) {
+        error.textContent = '❌ Correo o contraseña incorrectos.';
+      }
+    };
+
+    // ── CERRAR SESIÓN ─────────────────────────────
+    window.cerrarSesion = async function() {
+      await signOut(auth);
+    };
+
+    // ── ESTADO DEL USUARIO ────────────────────────
+    onAuthStateChanged(auth, async (user) => {
+      const botonesAuth   = document.getElementById('botonesAuth');
+      const botonLogout   = document.getElementById('botonLogout');
+      const nombreNav     = document.getElementById('nombreNav');
+      const saludo        = document.getElementById('saludoUsuario');
+      const carritoEstado = document.getElementById('carritoEstado');
+
+      if (user) {
+        botonesAuth.style.display = 'none';
+        botonLogout.style.display = 'flex';
+        const snap = await getDoc(doc(db, 'usuarios', user.uid));
+        if (snap.exists()) {
+          const datos = snap.data();
+          nombreNav.textContent       = '👤 ' + datos.nombre;
+          saludo.textContent          = '¡Hola, ' + datos.nombre + '! 🌿';
+          saludo.style.display        = 'block';
+          carritoEstado.textContent   = '✅ Carrito guardado en la nube para ' + datos.nombre;
+          window._uid     = user.uid;
+          window._carrito = datos.carrito || [];
+          renderCarrito();
+        }
+      } else {
+        botonesAuth.style.display   = 'flex';
+        botonLogout.style.display   = 'none';
+        saludo.style.display        = 'none';
+        carritoEstado.textContent   = '💡 Inicia sesión para guardar tu carrito en la nube ☁️';
+        window._uid     = null;
+        window._carrito = [];
+        renderCarrito();
+      }
+    });
+
+    // ── CARRITO ───────────────────────────────────
+    window._carrito = [];
+    window._uid     = null;
+
+    window.agregarProducto = async function() {
+      const input = document.getElementById('inputProducto');
+      const valor = input.value.trim();
+      if (!valor) return;
+      window._carrito.push(valor);
+      input.value = '';
+      await guardarCarrito();
+      renderCarrito();
+    };
+
+    window.eliminarItem = async function(index) {
+      window._carrito.splice(index, 1);
+      await guardarCarrito();
+      renderCarrito();
+    };
+
+    window.limpiarCarrito = async function() {
+      window._carrito = [];
+      await guardarCarrito();
+      renderCarrito();
+    };
+
+    async function guardarCarrito() {
+      if (window._uid) {
+        await updateDoc(doc(db, 'usuarios', window._uid), { carrito: window._carrito });
+      }
+    }
+
+    function renderCarrito() {
+      const lista = document.getElementById('listaCarrito');
+      const msg   = document.getElementById('mensajeStorage');
+      lista.innerHTML = '';
+      window._carrito.forEach((item, i) => {
+        const li = document.createElement('li');
+        li.style.cssText = 'padding:6px 10px; margin:4px 0; background:#f0faf0; border:1px solid #4CAF50; border-radius:6px; display:flex; justify-content:space-between; align-items:center;';
+        li.innerHTML = `<span>${item}</span>
+          <button onclick="eliminarItem(${i})"
+            style="background:none; border:none; cursor:pointer; color:#e53935; font-size:16px;">✕</button>`;
+        lista.appendChild(li);
+      });
+      msg.textContent = window._carrito.length > 0
+        ? '🛒 ' + window._carrito.length + ' producto(s) en tu carrito'
+        : '🛒 Tu carrito está vacío';
+    }
+  </script>
+
+  <!-- =============================================
+       SCRIPTS GENERALES
+  ============================================== -->
+  <script>
+    // Audio al hacer clic
+    document.addEventListener('click', function() {
+      const audio = document.getElementById('musicaFondo');
+      if (audio && audio.paused) audio.play();
+    }, { once: true });
+
+    // Modal
+    function abrirModal(tab) {
+      document.getElementById('modalOverlay').classList.add('activo');
+      cambiarTab(tab);
+    }
+    function cerrarModal() {
+      document.getElementById('modalOverlay').classList.remove('activo');
+    }
+    function cambiarTab(tab) {
+      const esLogin = tab === 'login';
+      document.getElementById('formLogin').classList.toggle('oculto', !esLogin);
+      document.getElementById('formRegistro').classList.toggle('oculto', esLogin);
+      document.getElementById('tabLogin').classList.toggle('activo', esLogin);
+      document.getElementById('tabRegistro').classList.toggle('activo', !esLogin);
+    }
+
+    // Canvas - Mini juego
+    const canvas = document.getElementById('miCanvas');
+    const ctx    = canvas.getContext('2d');
+    const frutas = [
+      { x:60,  y:80,  emoji:'🍅', nombre:'Tomate',  enCanasta:false },
+      { x:160, y:80,  emoji:'🍏', nombre:'Manzana', enCanasta:false },
+      { x:260, y:80,  emoji:'🍊', nombre:'Naranja', enCanasta:false },
+      { x:360, y:80,  emoji:'🍋', nombre:'Limón',   enCanasta:false },
+      { x:60,  y:170, emoji:'🍇', nombre:'Uvas',    enCanasta:false },
+      { x:160, y:170, emoji:'🍌', nombre:'Banano',  enCanasta:false },
+      { x:260, y:170, emoji:'🍓', nombre:'Fresa',   enCanasta:false },
+      { x:360, y:170, emoji:'🥝', nombre:'Kiwi',    enCanasta:false },
+    ];
+    const canasta = { x:170, y:230, w:160, h:80 };
+    let arrastando = null, offsetX = 0, offsetY = 0, puntaje = 0, mensaje = '';
+
+    function dibujarCanvas() {
+      const bg = ctx.createLinearGradient(0,0,500,320);
+      bg.addColorStop(0,'#e8f5e9'); bg.addColorStop(1,'#fff8e1');
+      ctx.fillStyle = bg; ctx.fillRect(0,0,500,320);
+      ctx.fillStyle='#2e7d32'; ctx.font='bold 13px Arial'; ctx.textAlign='left';
+      ctx.fillText('🌿 Frutas disponibles:',10,25);
+      ctx.setLineDash([6,3]); ctx.strokeStyle='#aaa';
+      ctx.beginPath(); ctx.moveTo(10,210); ctx.lineTo(490,210); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle='#8B5E3C';
+      ctx.beginPath();
+      ctx.moveTo(canasta.x,canasta.y);
+      ctx.lineTo(canasta.x+canasta.w,canasta.y);
+      ctx.lineTo(canasta.x+canasta.w-15,canasta.y+canasta.h);
+      ctx.lineTo(canasta.x+15,canasta.y+canasta.h);
+      ctx.closePath(); ctx.fill();
+      ctx.strokeStyle='#5D3A1A'; ctx.lineWidth=2; ctx.stroke();
+      for(let i=1;i<4;i++){
+        ctx.beginPath();
+        ctx.moveTo(canasta.x+(i*canasta.w/4),canasta.y);
+        ctx.lineTo(canasta.x+(i*canasta.w/4)-10,canasta.y+canasta.h);
+        ctx.strokeStyle='#5D3A1A'; ctx.lineWidth=1; ctx.stroke();
+      }
+      ctx.fillStyle='white'; ctx.font='bold 12px Arial'; ctx.textAlign='center';
+      ctx.fillText('🧺 Canasta',canasta.x+canasta.w/2,canasta.y+canasta.h/2+5);
+      ctx.fillStyle='#2e7d32'; ctx.font='bold 14px Arial'; ctx.textAlign='right';
+      ctx.fillText('🛒 '+puntaje+' / '+frutas.length,490,25);
+      frutas.forEach(f => {
+        if(!f.enCanasta){
+          ctx.font='36px Arial'; ctx.textAlign='center';
+          ctx.fillText(f.emoji,f.x,f.y);
+          ctx.fillStyle='#555'; ctx.font='11px Arial';
+          ctx.fillText(f.nombre,f.x,f.y+20); ctx.fillStyle='#555';
+        }
+      });
+      if(mensaje){
+        ctx.fillStyle = puntaje===frutas.length ? '#2e7d32' : '#FF9800';
+        ctx.font='bold 16px Arial'; ctx.textAlign='center';
+        ctx.fillText(mensaje,250,300);
+      }
+    }
+
+    function enCanasta(x,y){ return x>canasta.x&&x<canasta.x+canasta.w&&y>canasta.y&&y<canasta.y+canasta.h; }
+    canvas.addEventListener('mousedown',e=>{
+      const r=canvas.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top;
+      frutas.forEach(f=>{ if(!f.enCanasta){ const dx=mx-f.x,dy=my-f.y; if(Math.sqrt(dx*dx+dy*dy)<25){ arrastando=f; offsetX=dx; offsetY=dy; canvas.style.cursor='grabbing'; }}});
+    });
+    canvas.addEventListener('mousemove',e=>{
+      if(!arrastando)return;
+      const r=canvas.getBoundingClientRect();
+      arrastando.x=e.clientX-r.left-offsetX; arrastando.y=e.clientY-r.top-offsetY;
+      dibujarCanvas();
+    });
+    canvas.addEventListener('mouseup',()=>{
+      if(!arrastando)return;
+      if(enCanasta(arrastando.x,arrastando.y)){ arrastando.enCanasta=true; puntaje++; mensaje=puntaje===frutas.length?'🎉 ¡Canasta llena! ¡Excelente!':'✅ +'+arrastando.nombre+' en la canasta!'; }
+      else{ mensaje='❌ ¡Suéltala dentro de la canasta!'; }
+      arrastando=null; canvas.style.cursor='grab'; dibujarCanvas();
+    });
+    dibujarCanvas();
+  </script>
+
+
+  
+  <script>
+  // 🕵️‍♂️ AGENTE SECRETO DOM - Misión Interactiva + DESCUENTO ESPECIAL
+  // Activa un 30% de descuento en compras > $150.000
+
+  let condicion1_cumplida = false;  // Iniciar sesión o registrarse
+  let condicion2_cumplida = false;  // Completar el mini-juego de frutas
+  let condicion3_cumplida = false;  // Agregar 3+ productos al carrito
+  let misionCompletada = false;     // Evita que se ejecute más de una vez
+
+  // 🔍 CONDICIÓN 1: Monitorear autenticación (login/registro)
+  function monitorearAutenticacion() {
+    const observer = new MutationObserver(() => {
+      const botonLogout = document.getElementById('botonLogout');
+      const saludoUsuario = document.getElementById('saludoUsuario');
+    
+      if ((botonLogout && botonLogout.style.display !== 'none') || 
+          (saludoUsuario && saludoUsuario.style.display !== 'none')) {
+        if (!condicion1_cumplida) {
+          condicion1_cumplida = true;
+          console.log('✅ Condición 1 completada: Usuario autenticado');
+        }
+      }
+    });
+  
+    observer.observe(document.getElementById('botonesAuth'), { attributes: true, attributeFilter: ['style'] });
+    observer.observe(document.getElementById('botonLogout'), { attributes: true, attributeFilter: ['style'] });
+    observer.observe(document.getElementById('saludoUsuario'), { attributes: true, attributeFilter: ['style'] });
+  }
+
+  // 🎮 CONDICIÓN 2: Monitorear completación del mini-juego
+  function monitorearMiniJuego() {
+    const canvas = document.getElementById('miCanvas');
+    if (!canvas) return;
+  
+    const originalDibujarCanvas = window.dibujarCanvas || dibujarCanvas;
+  
+    const nuevoDibujarCanvas = function() {
+      originalDibujarCanvas.call(this);
+    
+      const frutas = window.frutas || [];
+      const todasEnCanasta = frutas.every(f => f.enCanasta);
+    
+      if (todasEnCanasta && !condicion2_cumplida) {
+        condicion2_cumplida = true;
+        console.log('✅ Condición 2 completada: ¡Mini-juego completado!');
+      }
+    };
+  
+    window.dibujarCanvas = nuevoDibujarCanvas;
+  }
+
+  // 🛒 CONDICIÓN 3: Monitorear carrito (mínimo 3 productos)
+  function monitorearCarrito() {
+    const originalRenderCarrito = window.renderCarrito;
+  
+    window.renderCarrito = function() {
+      if (originalRenderCarrito) {
+        originalRenderCarrito.call(this);
+      }
+    
+      const carrito = window._carrito || [];
+      if (carrito.length >= 3 && !condicion3_cumplida) {
+        condicion3_cumplida = true;
+        console.log('✅ Condición 3 completada: 3+ productos en carrito');
+      }
+    };
+  
+    setInterval(() => {
+      const carrito = window._carrito || [];
+      if (carrito.length >= 3 && !condicion3_cumplida) {
+        condicion3_cumplida = true;
+      }
+    }, 1000);
+  } 
+
+  // 💰 CALCULADORA DE DESCUENTO ESPECIAL
+  function calcularDescuento() {
+    const carrito = window._carrito || [];
+    let total = 0;
+  
+    // Precios estimados por producto (puedes ajustar)
+    const preciosPorProducto = {
+      'Tomates': 12000, 'Manzana': 8000, 'Naranja': 7000, 'Limón': 5000,
+      'Uvas': 25000, 'Banano': 6000, 'Fresa': 18000, 'Kiwi': 12000,
+      'Tomates frescos': 12000, 'Brócoli': 15000, 'Zanahorias': 8000
+    };
+  
+    carrito.forEach(producto => {
+      const nombre = producto.toLowerCase().includes('tomates') ? 'Tomates' :
+                    producto.toLowerCase().includes('manzana') ? 'Manzana' :
+                    producto.toLowerCase().includes('naranja') ? 'Naranja' :
+                    producto.toLowerCase().includes('limón') ? 'Limón' :
+                    producto.toLowerCase().includes('uvas') ? 'Uvas' :
+                    producto.toLowerCase().includes('banano') ? 'Banano' :
+                    producto.toLowerCase().includes('fresa') ? 'Fresa' :
+                    producto.toLowerCase().includes('kiwi') ? 'Kiwi' :
+                    producto.toLowerCase().includes('brócoli') ? 'Brócoli' :
+                    producto.toLowerCase().includes('zanahoria') ? 'Zanahorias' : 10000;
+    
+      total += preciosPorProducto[nombre] || 10000;
+    });
+  
+    if (total >= 150000) {
+      const descuento = total * 0.30;
+      const totalConDescuento = total - descuento;
+      return {
+        aplica: true,
+        totalOriginal: total,
+        descuento: descuento,
+        totalFinal: totalConDescuento,
+        mensaje: `🎉 ¡DESCUENTO ESPECIAL ACTIVADO! 30% OFF\n💰 Total original: $${total.toLocaleString()}\n✨ Ahorras: $${descuento.toLocaleString()}\n✅ TOTAL FINAL: $${totalConDescuento.toLocaleString()}`
+      };
+    }
+    return { aplica: false };
+  }
+
+  // 🚀 FUNCIÓN PRINCIPAL: Activar agente y descuento
+  function verificarMisionCompletada() {
+    if (misionCompletada) return;
+  
+    if (condicion1_cumplida && condicion2_cumplida && condicion3_cumplida) {
+      misionCompletada = true;
+      console.log('🎉 ¡LAS 3 CONDICIONES CUMPLIDAS! ACTIVANDO AGENTE DOM...');
+    
+      // 1. Cambiar estilo del título principal
+      const tituloPrincipal = document.querySelector('header h1');
+      if (tituloPrincipal) {
+        tituloPrincipal.style.backgroundColor = '#FFD700';
+        tituloPrincipal.style.color = '#000000';
+        tituloPrincipal.style.padding = '15px 25px';
+        tituloPrincipal.style.borderRadius = '12px';
+        tituloPrincipal.style.boxShadow = '0 8px 25px rgba(255,215,0,0.6)';
+        tituloPrincipal.style.marginBottom = '10px';
+        tituloPrincipal.innerHTML += ' <span style="font-size:0.7em;">✨</span>';
+      }
+    
+      // 2. Crear contenedor para mensajes especiales
+      const contenedorEspecial = document.createElement('div');
+      contenedorEspecial.style.cssText = `
+        background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+        color: white;
+        padding: 25px;
+        border-radius: 20px;
+        margin: 20px auto;
+        max-width: 600px;
+        box-shadow: 0 20px 40px rgba(30,58,138,0.4);
+        text-align: center;
+        border: 3px solid #FFD700;
+        animation: slideIn 1s ease-out;
+      `;
+    
+      // Animación
+      const estiloAnimacion = document.createElement('style');
+      estiloAnimacion.textContent = `
+        @keyframes slideIn {
+          from { transform: translateY(-100px); opacity: 0; }
+          to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes pulse {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.05); }
+        }
+      `;
+      document.head.appendChild(estiloAnimacion);
+    
+      // 3. Mensaje de misión completada
+      const mensajeMision = document.createElement('p');
+      mensajeMision.innerHTML = `
+        <strong style="font-size: 24px; color: #FFD700; display: block; margin-bottom: 10px;">
+          🎉 Misión Cumplida: Agente DOM Activado! ✨
+        </strong>
+        <span style="font-size: 16px;">¡Has desbloqueado recompensas especiales!</span>
+      `;
+      contenedorEspecial.appendChild(mensajeMision);
+    
+      // 4. Mensaje de descuento dinámico
+      const infoDescuento = calcularDescuento();
+      const mensajeDescuento = document.createElement('div');
+    
+      if (infoDescuento.aplica) {
+        mensajeDescuento.innerHTML = `
+          <div style="background: rgba(34,197,94,0.2); padding: 20px; border-radius: 15px; margin-top: 20px; border: 2px solid #22c55e;">
+            <h3 style="color: #22c55e; margin: 0 0 15px 0; font-size: 22px;">
+              💎 DESCUENTO ESPECIAL ACTIVADO: <strong>30% OFF</strong>
+            </h3>
+            <div style="font-size: 18px; line-height: 1.6;">
+              <strong>Total original:</strong> <span style="text-decoration: line-through; color: #ef4444;">$${infoDescuento.totalOriginal.toLocaleString()}</span><br>
+              <strong>✨ Ahorras:</strong> <span style="color: #22c55e;">$${infoDescuento.descuento.toLocaleString()}</span><br>
+              <strong>✅ TOTAL FINAL:</strong> <span style="color: #FFD700; font-size: 24px; font-weight: bold;">$${infoDescuento.totalFinal.toLocaleString()}</span>
+            </div>
+            <p style="margin-top: 15px; font-size: 14px; opacity: 0.9;">
+              💬 Contacta al WhatsApp para aplicar tu descuento especial
+            </p>
+          </div>
+        `;
+        mensajeDescuento.style.animation = 'pulse 2s infinite';
+      } else {
+        mensajeDescuento.innerHTML = `
+          <div style="background: rgba(245,158,11,0.2); padding: 15px; border-radius: 10px; margin-top: 15px; border: 2px solid #f59e0b;">
+            <p style="margin: 0; color: #d97706;">
+              📈 <strong>¡Aumenta tu compra a $150.000+</strong> para activar el 30% de descuento!
+            </p>
+          </div>
+        `;
+      }
+    
+      contenedorEspecial.appendChild(mensajeDescuento);
+    
+      // Insertar después del header
+      const header = document.querySelector('header');
+      header.parentNode.insertBefore(contenedorEspecial, header.nextSibling);
+    
+      // Actualizar descuento en tiempo real
+      setInterval(() => {
+        if (misionCompletada) {
+          const nuevoDescuento = calcularDescuento();
+          // Actualiza el mensaje si cambió el estado del descuento
+        }
+      }, 2000);
+    
+      // Efecto de sonido
+      const audio = document.getElementById('musicaFondo');
+      if (audio) {
+        audio.currentTime = 0;
+        audio.play();
+      }
+    }
+  }
+
+  // 🎯 INICIALIZAR EL AGENTE SECRETO
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('🕵️‍♂️ Agente DOM inicializado. Monitoreando 3 condiciones...');
+  
+    monitorearAutenticacion();
+    monitorearMiniJuego();
+    monitorearCarrito();
+  
+    setInterval(verificarMisionCompletada, 500);
+  
+    console.log('📋 Condiciones para DESCUENTO 30% OFF:');
+    console.log('1️⃣ Iniciar sesión o registrarse');
+    console.log('2️⃣ Completar el mini-juego de frutas');
+    console.log('3️⃣ Agregar 3+ productos al carrito');
+    console.log('💰 Compra > $150.000 = 30% DESCUENTO');
+  });
+
+  // Debug en consola
+  setInterval(() => {
+    if (!misionCompletada) {
+      console.clear();
+      console.log('🕵️‍♂️ ESTADO DEL AGENTE DOM (30% OFF):');
+      console.log(`Login: ${condicion1_cumplida ? '✅' : '⏳'}`);
+      console.log(`Juego: ${condicion2_cumplida ? '✅' : '⏳'}`);
+      console.log(`Carrito: ${condicion3_cumplida ? '✅' : '⏳'} (${window._carrito?.length || 0}/3)`);
+      console.log(`Progreso: ${condicion1_cumplida + condicion2_cumplida + condicion3_cumplida}/3`);
+    
+      const descuento = calcularDescuento();
+      console.log(`💰 Total estimado: $${descuento.totalOriginal?.toLocaleString() || 0} ${descuento.aplica ? '✅ 30% OFF' : '❌ Necesitas $150k+'}`);
+    }
+  }, 3000);
+  </script>
+</body>
+</html>
