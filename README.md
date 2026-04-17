@@ -1,285 +1,178 @@
-# 🛒 La Canasta Familiar
+# 🕵️‍♂️ Agente Secreto DOM - Sistema de Recompensas Interactivo
 
-Aplicación web interactiva para la gestión de compras de productos frescos (fruver), desarrollada con **HTML5, CSS3 y Firebase**.
-
----
-
-# ⚙️ Módulos (Temas) Implementados con Justificación
-
-## 🧱 Tema 1: Estructura semántica de HTML5
-Se utilizaron etiquetas como:  
-`<header>`, `<nav>`, `<section>`, `<article>`, `<footer>`
-
-**Justificación:**  
-Organiza el contenido correctamente, mejora accesibilidad y SEO.
+Este proyecto implementa un **agente dinámico en el DOM** que monitorea el comportamiento del usuario en tiempo real y desbloquea una recompensa especial cuando se cumplen ciertas condiciones.
 
 ---
 
-## 🏷️ Tema 2: Etiquetas básicas
-Uso de:  
-`<h1>`, `<p>`, `<ul>`, `<li>`, `<a>`
+## 🎯 Objetivo
 
-**Justificación:**  
-Base fundamental para estructurar páginas web.
+Activar automáticamente un **descuento del 30%** cuando:
 
----
-
-## 🖼️ Tema 3: Imágenes, listas y enlaces
-Uso de:  
-`<img>`, `<ul>`, `<a>`
-
-**Justificación:**  
-Permiten mostrar contenido visual y facilitar navegación.
+- El usuario interactúa con la plataforma
+- Completa acciones específicas
+- Alcanza un monto mínimo de compra
 
 ---
 
-## 🎨 Tema 4: CSS externo
-Uso de:  
-`<link rel="stylesheet" href="css/visual.css">`
+## ⚙️ ¿Cómo funciona?
 
-**Justificación:**  
-Separa diseño de estructura, facilitando mantenimiento.
+El script utiliza:
 
----
-
-## 🎯 Tema 5: Propiedades CSS
-Uso de:  
-`color`, `background`, `margin`, `padding`, `border`
-
-**Justificación:**  
-Permiten controlar el diseño visual.
+- `MutationObserver` para detectar cambios en el DOM
+- Sobrescritura de funciones (`override`)
+- Monitoreo continuo con `setInterval`
+- Manipulación dinámica del DOM
 
 ---
 
-## 🌐 Tema 6: Favicon
-Uso de:  
-`<link rel="icon" href="images/Favicon Canasta.jpg">`
+## ✅ Condiciones del Sistema
 
-**Justificación:**  
-Mejora identidad visual del sitio.
+Para activar el **Agente DOM**, se deben cumplir las siguientes 3 condiciones:
 
----
+### 1️⃣ Autenticación del usuario
+El usuario debe:
+- Iniciar sesión o
+- Registrarse en la plataforma
 
-## 🔵 Tema 7: Bordes
-Uso de:  
-`border-radius: 8px;`
-
-**Justificación:**  
-Diseño moderno.
+📌 Se detecta cuando:
+- Aparece el botón `#botonLogout`
+- O el saludo `#saludoUsuario`
 
 ---
 
-## 🌑 Tema 8: Sombras
-Uso de:  
-`box-shadow: 0 0 10px rgba(0,0,0,0.1);`
+### 2️⃣ Completar el mini-juego 🎮
+El usuario debe completar el juego de frutas.
 
-**Justificación:**  
-Genera profundidad visual.
-
----
-
-## 🖼️ Tema 9: Fondo
-Uso de:  
-`background-image: url(...);`
-
-**Justificación:**  
-Mejora estética del sitio.
+📌 Se valida cuando:
+```js
+frutas.every(f => f.enCanasta)
+```
 
 ---
 
-## 🔤 Tema 10: Tipografía
-Uso de:  
-`font-family: Arial;`
+### 3️⃣ Carrito con mínimo 3 productos 🛒
+El usuario debe agregar al menos 3 productos.
 
-**Justificación:**  
-Mejora legibilidad.
-
----
-
-## 🌊 Tema 11: Float
-Uso de:  
-`float: right;`
-
-**Justificación:**  
-Alinea imágenes con texto.
+📌 Se detecta mediante:
+```js
+window._carrito.length >= 3
+```
 
 ---
 
-## 📐 Tema 12: Centrado
-Uso de:  
-`margin: auto;`  
-`text-align: center;`
+## 💰 Condición adicional para descuento
 
-**Justificación:**  
-Mejora presentación visual.
+Además de completar las 3 condiciones:
+
+👉 El total de la compra debe ser mayor o igual a **$150.000**
 
 ---
 
-## 📦 Tema 13: Flexbox
-Uso de:  
-`display: flex;`  
-`justify-content: center;`
+## 🎁 Recompensa
 
-**Justificación:**  
-Permite diseños flexibles y adaptables.
+Si todas las condiciones se cumplen:
 
----
+- 🎉 Se activa el **Agente DOM**
+- 🎨 Se modifica el diseño de la página
+- 💎 Se muestra un mensaje especial
+- 💰 Se aplica:
 
-## 📍 Tema 14: Position
-Uso de:  
-`position: absolute;`
-
-**Justificación:**  
-Ubicación precisa de elementos.
+```
+30% DE DESCUENTO
+```
 
 ---
 
-## 🔄 Tema 15: Transform
-Uso de:  
-`transform: scale(1.08);`
+## 🧠 Lógica del Descuento
 
-**Justificación:**  
-Añade interactividad visual.
+El sistema:
 
----
+1. Calcula el total del carrito
+2. Asigna precios estimados por producto
+3. Aplica:
 
-## 📝 Tema 16: Formularios
-Uso de:  
-`<form>`, `<input>`, `<textarea>`
+```js
+descuento = total * 0.30
+```
 
-**Justificación:**  
-Permite interacción con el usuario.
-
----
-
-## 🗺️ Tema 17: iframe
-Uso de:  
-`<iframe src="Google Maps">`
-
-**Justificación:**  
-Integra servicios externos.
+4. Muestra:
+- Total original
+- Ahorro
+- Total final
 
 ---
 
-## ✨ Tema 18: Transiciones
-Uso de:  
-`transition: 0.3s;`
+## 🚀 Activación automática
 
-**Justificación:**  
-Suaviza cambios visuales.
+El sistema se inicializa con:
 
----
+```js
+document.addEventListener('DOMContentLoaded', ...)
+```
 
-## 📄 Tema 19: Columnas
-Uso de:  
-`column-count: 2;`
+Y monitorea constantemente:
 
-**Justificación:**  
-Mejora la lectura.
+```js
+setInterval(verificarMisionCompletada, 500);
+```
 
 ---
 
-## 🎥 Tema 20: Video
-Uso de:  
-`<video controls>`
+## 🧪 Debug en consola
 
-**Justificación:**  
-Contenido multimedia.
+Se muestra información en tiempo real:
 
----
-
-## 🔊 Tema 21: Audio
-Uso de:  
-`<audio autoplay>`
-
-**Justificación:**  
-Ambientación del sitio.
+- Estado de cada condición
+- Progreso general
+- Total del carrito
+- Estado del descuento
 
 ---
 
-## 🎨 Tema 22: Degradados
-Uso de:  
-`background: linear-gradient(...);`
+## 📦 Requisitos
 
-**Justificación:**  
-Diseño moderno.
+Este script depende de:
 
----
+### HTML
+- `#botonLogout`
+- `#saludoUsuario`
+- `#botonesAuth`
+- `#miCanvas`
 
-## 🎬 Tema 23: Animaciones
-Uso de:  
-`@keyframes`
+### Variables globales
+- `window._carrito`
+- `window.frutas`
 
-**Justificación:**  
-Interfaz dinámica.
-
----
-
-## 🧩 Tema 24: SVG
-Uso de:  
-`<svg>`
-
-**Justificación:**  
-Gráficos sin pérdida de calidad.
+### Funciones existentes
+- `dibujarCanvas()`
+- `renderCarrito()`
 
 ---
 
-## 🎮 Tema 25: Canvas
-Uso de:  
-`<canvas>`
+## ⚠️ Notas importantes
 
-**Justificación:**  
-Interactividad avanzada.
-
----
-
-## 📱 Tema 26: Responsive
-Uso de:  
-`@media (max-width: 768px)`
-
-**Justificación:**  
-Adaptación a móviles.
+- El script sobrescribe funciones existentes
+- Depende de la estructura del DOM
+- Diseñado para gamificación en frontend
 
 ---
 
-## ✏️ Tema 27: Contenido editable
-Uso de:  
-`contenteditable="true"`
+## 💡 Posibles mejoras
 
-**Justificación:**  
-Permite personalización del usuario.
-
----
-
-## ☁️ Tema 28: Firebase
-Uso de:  
-Firebase Auth + Firestore
-
-**Justificación:**  
-Permite autenticación y almacenamiento en la nube.
+- Integrar backend real para precios
+- Guardar progreso del usuario
+- Mejorar animaciones
+- Sistema de recompensas escalables
 
 ---
 
-# 🚀 Funcionalidades
+## 👨‍💻 Autor
 
-- Registro e inicio de sesión  
-- Carrito guardado en la nube  
-- Lista editable  
-- Mini juego interactivo  
-- Uso de multimedia  
-- Diseño responsive  
+Proyecto enfocado en:
+- Manipulación del DOM
+- Experiencia de usuario (UX)
+- Gamificación en e-commerce
 
 ---
 
-# 👤 Uso
-
-1. Abrir la aplicación  
-2. Registrarse o iniciar sesión  
-3. Agregar productos  
-4. Guardar en la nube  
-
----
-
-# 📌 Conclusión
-
-Proyecto completo que integra HTML, CSS, JavaScript y Firebase en una aplicación moderna e interactiva.
+✨ Convierte la interacción del usuario en una misión.
